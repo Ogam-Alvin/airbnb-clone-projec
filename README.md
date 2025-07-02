@@ -57,3 +57,33 @@ Provides developers with access to REST and GraphQL endpoints using the OpenAPI 
 **Database Optimization**
 Includes indexing frequently accessed data and implementing caching mechanisms with Redis. It ensures the backend remains performant and scalable as data grows.
 
+## API Security
+Securing the backend API is critical to protect user data, ensure system integrity, and maintain trust between users and the platform. The following key measures are implemented in this project:
+
+✅ Authentication
+Authentication ensures that only registered users can access protected endpoints. We use token-based authentication (such as JWT or DRF TokenAuth) to verify user identity with every request. This is essential for securing user sessions and preventing unauthorized access.
+
+✅ Authorization
+Once authenticated, authorization determines what actions a user is allowed to perform. Role-based permissions restrict users from modifying or accessing data they don’t own (e.g., only property owners can update their listings). This protects data integrity and enforces user-specific access controls.
+
+✅ Rate Limiting
+Rate limiting is applied to prevent abuse of the API through excessive requests. By limiting the number of requests from a single IP or token within a certain time frame, we reduce the risk of denial-of-service (DoS) attacks and improve system stability.
+
+✅ Input Validation and Sanitization
+All incoming data is validated using Django serializers and schema definitions. This helps prevent SQL injection, cross-site scripting (XSS), and other injection-based vulnerabilities that could compromise the system.
+
+✅ Secure Communication
+All API communications are enforced over HTTPS to encrypt data in transit. This prevents sensitive information like login credentials and payment data from being intercepted by attackers.
+
+✅ Data Encryption
+Sensitive data (e.g., passwords) are securely hashed and stored using industry-standard algorithms (like PBKDF2 or bcrypt). This protects user data even in the event of a data breach.
+
+✅ Audit Logging
+Critical actions like user logins, bookings, and payments are logged to monitor activity and detect suspicious behavior. This supports security audits and helps in incident response.
+
+### Why Security Matters
+1. User Data Protection: Personal details such as email addresses and payment methods must be secured to prevent identity theft.
+
+2. Financial Safety: Payment endpoints must be secure to prevent fraud and ensure transactions are trustworthy.
+
+3. System Trust: A secure API builds user trust and ensures compliance with privacy regulations like GDPR.
